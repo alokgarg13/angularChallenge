@@ -1,0 +1,22 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics"
+    },
+    {
+      "id": "2",
+      "name": "Wooden Items"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Mobile"
+    },
+    {
+      "id": "2",
+      "name": "LCD"
+    }
+  ]
+}
