@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+  <mat-card-subtitle>Error Code 404</mat-card-subtitle>
+  <mat-card-title>Page Not Found</mat-card-title>
+  <mat-card-content>
+    <p>We could not find this page. </p>
+    <p>There is something wrong with this browsed page. Either it is moved or never created. Feel free to contact administrator for this issue. </p>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions>
+    <button mat-button (click)="back()">Back</button>
+    <button mat-button routerLink="/home">Home</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+  </mat-card-footer>
+</mat-card>
