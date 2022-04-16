@@ -1,0 +1,16 @@
+
+<div *ngIf="data.isAdd">
+  <h1 mat-dialog-title>Product Added</h1>
+  <div mat-dialog-content>New Product has been added successfully in the database. </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="closeDialog()">Close</button>
+  </div>
+</div>
+
+<div *ngIf="data.isEdit">
+<h1 mat-dialog-title>Product Updated</h1>
+<div mat-dialog-content>Product details has been added successfully in the database. </div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="closeDialog()">Close</button>
+</div>
+</div>

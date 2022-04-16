@@ -1,6 +1,70 @@
-<p *ngIf="isAdd">Add New Product</p>
-<p *ngIf="isEdit">Edit Product</p>
+<h2 *ngIf="isAdd">Add New Product</h2>
+<h2 *ngIf="isEdit">Edit Product</h2>
+
+<form
+  [formGroup]="productForm"
+  class="input-form"
+  (ngSubmit)="submitForm()" >
+
+  <input hidden="false" matInput placeholder="" formControlName="id" value="">
+
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Product Name</mat-label>
+    <input matInput placeholder="" formControlName="name">
+    <mat-error *ngIf="productForm.controls.name.touched && productForm.controls.name.status === 'INVALID'">
+      Please enter product name
+    </mat-error>
+  </mat-form-field>
+
+  {{productForm.controls.name.status}}
+
+ ---  {{selectedProduct?.cat_id}} -- {{categoryId}}---
+ <!-- -- {{selectedProduct['cat_id']}} -->
+  <mat-form-field class="select-field" appearance="fill">
+    <mat-label>Select Category</mat-label>
+    <mat-select formControlName="cat_id" [value]="categoryId" >
+      <mat-option value="">Select Category</mat-option>
+      <mat-option *ngFor="let category of categories" [(value)]="category.id">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+
+    <!-- <select matNativeControl >
+      <option value=""></option>
+      <option value="valid" selected>Valid option</option>
+      <option value="invalid">Invalid option</option>
+    </select> -->
+
+    <mat-error *ngIf="productForm.controls.cat_id.touched && productForm.controls.cat_id.status === 'INVALID'">
+      Please select category.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- <mat-form-field>
+    <mat-select [(value)]="categories" placeholder="Mode">
+      <mat-option value="domain">Domain</mat-option>
+      <mat-option value="exact">Exact</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput placeholder="" formControlName="price" value="">
+    <mat-error *ngIf="productForm.controls.price.touched && productForm.controls.price.status === 'INVALID'">
+      Please enter product price.
+    </mat-error>
+  </mat-form-field>
 
 
+  <div class="input-button-row">
+  <button mat-raised-button color="primary"
+    [disabled]="productForm.status==='INVALID'"
+    >Submit</button>
+  <button mat-raised-button color="primary"
+    routerLink="/products">Cancel</button>
+</div>
+
+</form>
 
 
+<!-- [disabled]="productForm.status==='INVALID'" -->

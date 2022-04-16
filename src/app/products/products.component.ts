@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { Product } from '../model/product';
-import { ServeProductService } from '../service/serve-product.service';
+import { Product } from '../model/models';
+import { ProductService } from '../service/product.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { CategoryService } from './../service/category.service';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +18,10 @@ export class ProductsComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'cat_id', 'price', 'action'];
 
-  constructor(private httpService: ServeProductService) { }
+  constructor(
+    private productService: ProductService,
+    private categoryService: CategoryService,
+    private router: Router) { }
   @ViewChild(MatTable) table: MatTable<Product>;
 
 
@@ -25,36 +30,35 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts() {
-    this.httpService.getProduct().subscribe(
+    this.productService.getAllProducts().subscribe(
       (response: any) => {
         this.productsList = response;
-        console.log(this.productsList);
       },
       (error: HttpErrorResponse) => {
         this.responseErrorMessage = error.message;
-        console.log(this.responseErrorMessage);
-        console.log(error);
       }
     )
   }
 
-  addProduct() {
-    // const randomElementIndex = Math.floor(Math.random() * PRODUCTS_DATA.length);
-    // this.dataSource.push(PRODUCTS_DATA[randomElementIndex]);
-    // this.table.renderRows();
-  }
-
-  removeData() {
-    // this.dataSource.pop();
-    // this.table.renderRows();
-  }
-
   editProduct(product: Product) {
-    console.log(product);
+    this.router.navigate([`/products/${product.id}/edit`]);
   }
 
-  deleteProduct(product: Product) {
+  deleteProduct(productId: any) {
+    this.productService.deleteProduct(productId).subscribe(
+      (response: any) => {
+        console.log('Product Deleted');
+        this.getProducts();
+      }
+    );
+  }
 
+  getCategoryName(cat_id: Number) {
+    this.categoryService.getCategory(cat_id).subscribe(
+      (response: any) => {
+        console.log(response.name);
+      }
+    );
   }
 
 }

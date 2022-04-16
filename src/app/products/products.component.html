@@ -2,26 +2,11 @@
   <mat-card-title>Products List</mat-card-title>
 </mat-card>
 
-<!-- <mat-grid-list cols="2">
-  <mat-grid-tile><mat-card-title>Products List</mat-card-title></mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button (click)="addProduct()" class="demo-button">
-    Add New Product
-  </button></mat-grid-tile>
-</mat-grid-list> -->
-
-
 <div class="demo-button-container" style="float:right; margin-top: -45px; margin-right: 30px;">
-  <button mat-raised-button (click)="addProduct()" class="demo-button">
+
+  <button mat-raised-button routerLink="/products/new" class="demo-button">
     Add New Product
   </button>
-  <!-- <button
-      mat-raised-button
-      [disabled]="!dataSource.length"
-      (click)="removeData()"
-      class="demo-button">
-    Remove data
-  </button> -->
 </div>
 
 <table mat-table [dataSource]="productsList" class="mat-elevation-z8 demo-table">
@@ -62,8 +47,8 @@
         <button
           mat-icon-button color="primary"
           [disabled]="!productsList.length"
-          (click)="deleteProduct(row)"
-          title="Delete Icon"><mat-icon>delete</mat-icon>
+          (click)="deleteProduct(row.id)"
+          title="Delete Product"><mat-icon>delete</mat-icon>
         </button>
       </td>
     <tr>
