@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.getAllProductSubscription = this.productService.getAllProducts().subscribe(
       (response: any) => {
         this.productsList = response;
-        console.log(this.productsList);
+
       },
       (error: HttpErrorResponse) => {
         this.responseErrorMessage = error.message;

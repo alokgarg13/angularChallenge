@@ -1,17 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 .mat-form-field-infix {
   border-bottom: solid 1px #aaa;
 }
-
-// .mat-form-field-wrapper {
-//   margin: 5px 0 !important;
-// }
 
 .mat-form-field-infix, .mat-error {
   font-size:12px;
@@ -34,4 +26,25 @@
 
 .demo-inline-calendar-card {
   width: 300px;
+}
+
+.prod-icon {
+  font-size: 14px;
+  margin:10px;
+}
+
+.mat-list-base .mat-list-item {
+  height: 30px !important
+}
+
+.example-spacer {
+  margin-left:30px;
+}
+
+.side-drawer{
+  width: 300px;
+}
+
+.action-block{
+  width:20%;
 }

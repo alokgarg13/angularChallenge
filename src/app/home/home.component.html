@@ -1,6 +1,6 @@
 
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened style="width: 300px;">
+  <mat-drawer mode="side" opened class="side-drawer">
 
     <mat-card class="example-card">
       <mat-card-subtitle>Partners</mat-card-subtitle>
@@ -38,7 +38,7 @@
         <mat-list role="list">
           <h3>Top Products</h3>
           <mat-list-item role="listitem" *ngFor="let product of productsList">
-            <mat-icon>loyalty</mat-icon> {{product.name}}
+            <mat-icon class="prod-icon">loyalty</mat-icon> {{product.name}}
           </mat-list-item>
         </mat-list>
 
@@ -50,7 +50,7 @@
         <mat-list role="list">
           <h3>Featured Categories</h3>
           <mat-list-item role="listitem" *ngFor="let category of categoryList">
-            <mat-icon>add_circle</mat-icon> {{category.name}}
+            <mat-icon class="prod-icon">add_circle</mat-icon> {{category.name}}
           </mat-list-item>
         </mat-list>
       </mat-card-content>

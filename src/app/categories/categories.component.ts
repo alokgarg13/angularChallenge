@@ -40,7 +40,6 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.getCategorySubscription = this.categoryService.getCategories().subscribe(
       (response: any) => {
         this.categoryList = response;
-        console.log(this.categoryList);
       },
       (error: HttpErrorResponse) => {
         this.responseErrorMessage = error.message;
