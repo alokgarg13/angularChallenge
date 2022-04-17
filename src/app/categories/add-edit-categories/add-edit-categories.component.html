@@ -1,0 +1,30 @@
+<h2 *ngIf="isAdd">Add New Category</h2>
+<h2 *ngIf="isEdit">Edit Category</h2>
+
+<form
+  [formGroup]="categoryForm"
+  class="input-form"
+  (ngSubmit)="submitForm()" >
+
+  <input hidden="false" matInput placeholder="" formControlName="id" value="">
+
+  <mat-form-field class="input-full-width" appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="" formControlName="name">
+    <mat-error *ngIf="categoryForm.controls.name.touched && categoryForm.controls.name.status === 'INVALID'">
+      Please enter product name
+    </mat-error>
+  </mat-form-field>
+
+
+  <div class="input-button-row">
+    <button mat-raised-button color="primary"
+      [disabled]="categoryForm.status==='INVALID'"
+      >Submit</button>
+    <button mat-raised-button color="primary"
+      routerLink="/categories">Cancel
+    </button>
+  </div>
+
+</form>
+

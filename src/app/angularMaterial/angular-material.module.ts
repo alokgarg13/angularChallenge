@@ -16,7 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [],
@@ -38,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSelectModule,
     MatSidenavModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule
   ]
 })
 export class AngularMaterialModule { }

@@ -1,9 +1,72 @@
-<!-- <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-</mat-grid-list> -->
 
-<mat-grid-list cols="2">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-</mat-grid-list>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened style="width: 300px;">
+
+    <mat-card class="example-card">
+      <mat-card-subtitle>Partners</mat-card-subtitle>
+      <mat-card-title>Technology Partners</mat-card-title>
+      <mat-card-content>
+        <p>Technology is a great tool when used effectively. The right technology will help you grow and thrive. Make use of our experience of building and scaling businesses across the globe. We will help you de-risk your technology spend and implement the right technology solutions: those that deliver the growth and success you want for your business. </p>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="example-card">
+      <mat-card-subtitle>Service</mat-card-subtitle>
+      <mat-card-title>Setting Strategy and Roadmap</mat-card-title>
+      <mat-card-content>
+        <p>We have worked as CTOs in large multi-national organisations as well as in high growth startups that have raised significant funds and expanded globally. Our roles have of course required technical knowledge but have also required us to have a strategic and operational mindset, however, most importantly we had to build a good understanding of how businesses work so we can marry the technology strategy with the business strategy.</p>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-drawer>
+  <mat-drawer-content>
+
+    <mat-card class="example-card">
+      <mat-card-subtitle>Home</mat-card-subtitle>
+      <mat-card-title>Dashboard</mat-card-title>
+      <mat-card-content>
+        <mat-list role="list">
+          <h3>Top Products</h3>
+          <mat-list-item role="listitem" *ngFor="let product of productsList">
+            <mat-icon>loyalty</mat-icon> {{product.name}}
+          </mat-list-item>
+        </mat-list>
+
+
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+
+      <mat-card-content>
+        <mat-list role="list">
+          <h3>Featured Categories</h3>
+          <mat-list-item role="listitem" *ngFor="let category of categoryList">
+            <mat-icon>add_circle</mat-icon> {{category.name}}
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+
+      <mat-card-actions>
+        <button mat-button routerLink="/products">Products</button>
+        <button mat-button routerLink="/categories">Categories</button>
+      </mat-card-actions>
+      <mat-card-footer>
+      </mat-card-footer>
+    </mat-card>
+
+
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

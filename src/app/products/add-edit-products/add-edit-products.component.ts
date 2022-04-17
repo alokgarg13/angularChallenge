@@ -69,7 +69,6 @@ export class AddEditProductsComponent implements OnInit, OnDestroy {
       .subscribe(
         (response: any) => {
           this.selectedProduct = response;
-          console.log(this.selectedProduct);
           this.productForm.patchValue(response);
           this.categoryId = response.cat_id;
         }
@@ -86,59 +85,59 @@ export class AddEditProductsComponent implements OnInit, OnDestroy {
 
   submitForm() {
     const productForm = this.productForm.value;
-
-    console.log(this.productForm);
     if(this.isAdd) this.addNewProduct(productForm);
     if(this.isEdit) this.updateProduct(productForm);
   }
 
   productCategory(obj: any) {
-    console.log(obj);
     return this.isEdit ? this.selectedProduct?.id : '';
   }
 
   addNewProduct(productForm: Product) {
+
     const product = {
-      "cat_id": productForm.cat_id,
-      "name": productForm.name,
-      "price": productForm.price
+      cat_id: parseInt( productForm.cat_id.toString()),
+      name: productForm.name,
+      price: productForm.price
     }
 
     this.productService.addProduct(product).subscribe(
       (response: any) => {
         this.dialog.open(DialogComponent, {
           data: {
-            isAdd: true
+            title: 'Product Added',
+            description: 'New product has been ADDED successfully in the database.',
+            redirectPath: '/products'
             }
           });
       },
       (error: HttpErrorResponse) => {
-
         this.responseErrorMessage = error.message;
-        console.log( this.responseErrorMessage);
       }
     );
   }
 
   updateProduct(productForm: Product) {
+
     const product = {
-      "id": productForm.id,
-      "cat_id": productForm.cat_id,
-      "name": productForm.name,
-      "price": productForm.price
+      id: parseInt( productForm.id.toString()),
+      cat_id: parseInt( productForm.cat_id.toString()),
+      name: productForm.name,
+      price: productForm.price
     }
 
     this.productService.editProduct(product).subscribe(
       (response: any) => {
         this.dialog.open(DialogComponent, {
           data: {
-            isEdit: true
+            title: 'Product Updated',
+            description: 'Product details has been UPDATED successfully in the database.',
+            redirectPath: '/products'
             }
-          });
+        });
       },
       (error: HttpErrorResponse) => {
         this.responseErrorMessage = error.message;
-        console.log( this.responseErrorMessage);
       }
     );
   }

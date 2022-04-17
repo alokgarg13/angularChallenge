@@ -16,3 +16,22 @@
 .mat-form-field-infix, .mat-error {
   font-size:12px;
 }
+
+.mat-header-cell {
+  font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+.nav-buttons {
+  margin-left:5px;
+  margin-right: 5px;
+}
+.nav-buttons.cdk-focused {
+  background-color: #aaa;
+  color: #fff;
+}
+
+.demo-inline-calendar-card {
+  width: 300px;
+}

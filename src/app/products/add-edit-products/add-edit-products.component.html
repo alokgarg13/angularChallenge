@@ -16,36 +16,20 @@
     </mat-error>
   </mat-form-field>
 
-  {{productForm.controls.name.status}}
-
- ---  {{selectedProduct?.cat_id}} -- {{categoryId}}---
- <!-- -- {{selectedProduct['cat_id']}} -->
   <mat-form-field class="select-field" appearance="fill">
-    <mat-label>Select Category</mat-label>
-    <mat-select formControlName="cat_id" [value]="categoryId" >
+    <!-- <mat-label>Select Category</mat-label> -->
+    <mat-select formControlName="cat_id" [value]="categoryId" placeholder="Select Category" >
       <mat-option value="">Select Category</mat-option>
       <mat-option *ngFor="let category of categories" [(value)]="category.id">
         {{category.name}}
       </mat-option>
     </mat-select>
 
-    <!-- <select matNativeControl >
-      <option value=""></option>
-      <option value="valid" selected>Valid option</option>
-      <option value="invalid">Invalid option</option>
-    </select> -->
 
     <mat-error *ngIf="productForm.controls.cat_id.touched && productForm.controls.cat_id.status === 'INVALID'">
       Please select category.
     </mat-error>
   </mat-form-field>
-
-  <!-- <mat-form-field>
-    <mat-select [(value)]="categories" placeholder="Mode">
-      <mat-option value="domain">Domain</mat-option>
-      <mat-option value="exact">Exact</mat-option>
-    </mat-select>
-  </mat-form-field> -->
 
   <mat-form-field class="input-full-width" appearance="fill">
     <mat-label>Price</mat-label>
@@ -57,14 +41,13 @@
 
 
   <div class="input-button-row">
-  <button mat-raised-button color="primary"
-    [disabled]="productForm.status==='INVALID'"
-    >Submit</button>
-  <button mat-raised-button color="primary"
-    routerLink="/products">Cancel</button>
-</div>
+    <button mat-raised-button color="primary"
+      [disabled]="productForm.status==='INVALID'"
+      >Submit</button>
+    <button mat-raised-button color="primary"
+      routerLink="/products">Cancel
+    </button>
+  </div>
 
 </form>
 
-
-<!-- [disabled]="productForm.status==='INVALID'" -->

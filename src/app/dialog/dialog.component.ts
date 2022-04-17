@@ -13,16 +13,13 @@ export class DialogComponent  {
     public router: Router,
     public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
-    ) {
+    ) {}
 
-      console.log('dialogData', data);
-    }
+  closeDialog(redirectPath: string) {
+    this.dialog.closeAll();
+    setTimeout(()=> {
+      this.router.navigate([redirectPath]);
+    }, 500);
+  }
 
-    closeDialog() {
-      this.dialog.closeAll();
-      setTimeout(()=> {
-        this.router.navigate([`/products`]);
-      }, 500);
-
-    }
 }

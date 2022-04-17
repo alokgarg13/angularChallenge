@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddEditProductsComponent } from './products/add-edit-products/add-edit-products.component';
+import { AddEditCategoriesComponent } from './categories/add-edit-categories/add-edit-categories.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DialogComponent } from './dialog/dialog.component';
     ProductsComponent,
     PageNotFoundComponent,
     AddEditProductsComponent,
+    AddEditCategoriesComponent,
     DialogComponent
   ],
   imports: [

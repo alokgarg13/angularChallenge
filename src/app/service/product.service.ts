@@ -26,7 +26,6 @@ export class ProductService {
 
   addProduct(product: Product): Observable<Product> {
     const url = environment.apiBaseUrl+'/products';
-    console.log('product obj to add new: ', product);
     return this.httpClient.post<Product>(url, product);
   }
 
@@ -34,7 +33,6 @@ export class ProductService {
     const url = `${environment.apiBaseUrl}/products/${product.id}`;
     return this.httpClient.put<Product>(url, product);
   }
-
 
   deleteProduct(id: any): Observable<Product> {
     const url = `${environment.apiBaseUrl}/products/${id}`;
